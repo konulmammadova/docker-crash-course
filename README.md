@@ -20,9 +20,9 @@ EXPOSE 4000
 #running after runnin image(when we have a container)
 CMD ["node", "app.js"]
 ```
-For creating image run in the same path with DockerFile(-t => tag):
+For creating image run(-t => tag):
 ```
-docker build -t new_image_name .
+docker build -t <new_image_name> <path/to/the/dockerfile>
 ```
 
 # lesson-6
