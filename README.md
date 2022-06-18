@@ -2,6 +2,9 @@
 All course files for the [Docker Crash Course tutorial on the Net Ninja site &amp; YouTube channel](https://www.youtube.com/watch?v=31ieHmcTUOk&list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7&index=1)
 
 # lesson-5
+
+Dokcer image is made up from layers(typically there will be parent image as the first layer).
+
 DockerFile example:
 
 ```
