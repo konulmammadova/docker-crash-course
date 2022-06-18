@@ -3,7 +3,7 @@ All course files for the [Docker Crash Course tutorial on the Net Ninja site &am
 
 # lesson-5
 
-Dokcer image is made up from layers(typically there will be parent image as the first layer).
+Docker image is made up from layers(typically there will be parent image as the first layer).
 
 DockerFile example:
 
