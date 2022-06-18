@@ -20,7 +20,7 @@ RUN npm install
 #exposed is used for mapping our computer port to container port, actually not required when we use cmd
 EXPOSE 4000
 
-#running after runnin image(when we have a container)
+#running after building image(when we have a container)
 CMD ["node", "app.js"]
 ```
 For creating image run(-t => tag):
