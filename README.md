@@ -20,7 +20,7 @@ EXPOSE 4000
 #running after runnin image(when we have a container)
 CMD ["node", "app.js"]
 ```
-For creating image run in the same oatch with DockerFile:
+For creating image run in the same path with DockerFile:
 ```
 docker build -t myapp .
 ```
