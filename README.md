@@ -55,6 +55,12 @@ If you want to run a container without blocking your terminal you can add detach
 
 ```docker run --name <new_container_name> -p 4000:4000 ```-d``` <image_name>```
 
+Start and stop docker:
+
+```docker stop <container_name_or_container_id>```
+
+```docker start <container_name_or_container_id>```
+
 # lesson-8
 
 # lesson-10
