@@ -63,6 +63,8 @@ To see containers list:
 
 If we don't map containers exposed port to our local computer's port, we can't acces the application.
 
+Note for port mapping: 4005:4000 -> means localhost's 4005 is mapping to containers 4000 port
+
 ```docker run --name <new_container_name> -p 4000:4000 <image_name>``` (-p means publish)
 
 If you want to run a container without blocking your terminal you can add detached flag:
