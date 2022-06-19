@@ -94,7 +94,7 @@ Exp: If we make a change to any file that needs also is coping into the image, i
 - Just because for being on top of the affected layer. In every layer(line) image is cached in the format of including whole stack of previous layers. Hence every layer on top of the affected layer needs to build from scratch.
 
 ### Optimized dockerfile example:
-We can update our dockerfile example if we need cache some further layers(layers on top of the COPY):
+We can update our dockerfile example above(see lesson-5) if we need cache some further layers(layers on top of the COPY):
 
 ```
 FROM nodejs
@@ -103,7 +103,7 @@ WORKDIR /app
 
 COPY package.json .
 
-#we changed this layer, beacuse we don't want to npm instal for every file change process
+#we changed this layer order, beacuse we don't want to npm install for every file change process and need to cache this layer
 #But we need package.json file to npm install before coping all files to the image
 #Hence we add COPY layer on top of this layer
 RUN npm install
@@ -116,7 +116,6 @@ EXPOSE 4000
 #running after building image(when we have a container)
 CMD ["node", "app.js"]
 ```
-Now we don't have to npm install in every file change.
 
 
 # lesson-10
