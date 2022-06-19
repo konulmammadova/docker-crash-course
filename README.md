@@ -132,6 +132,11 @@ To force removing image if there is any running container:
 
 ```docker image rm <image> -f```
 
+To remove container:
+
+```docker container rm <container_id_or_name>```
+
+
 # lesson-10
 
 
