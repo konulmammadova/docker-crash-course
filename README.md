@@ -63,6 +63,22 @@ Start and stop docker:
 
 # lesson-8
 
+## Layer Caching
+
+When we make a change to our app, we need to create new image. When we build a new image it take less time because of layer caching(docker caches our image layers).
+
+Every time docker tries to build an image and walks through different layers(lines), it stores that image at each layer(line) in the cache. 
+
+So for the first time we build this image after each layer docker took our image and store it in the cache.
+When we build image again before docker starts to whole build process from scratch, it looks in our cache and it tires to find an image in the cache that it can use for the new created image.
+
+Exp: If we make a change to any file that needs also is coping into the image, it affects ```COPY``` layer of the image and therefore every further laeyrs that is build on top of this layer(in our case: run, expose, cmd. See dockerfile example above). But since above layers(parent image and WORKDIR) aren't affected by this change, docker finds the cached images for these layers and grabs these, then runs through the subsequent layers and adds then on top to build new image. As a result the second time it takes less time to build new image.
+
+### WHY layers before are not affected, but all layers on the top of affected layer is affected only???
+
+- Just because for being on top of the affected layer. In every layer(line) image is cached in the format of including whole stack of previous layers. Hence every layer on top of the affected layer needs to build from scratch.
+
+
 # lesson-10
 
 # lesson-11
