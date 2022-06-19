@@ -39,7 +39,8 @@ To list docker images run the command:
 
 To run an image(create container):
 ```docker run <image_name>```
-\n```docker run --name <give_a_name_to_container> <image_name>```
+
+```docker run --name <give_a_name_to_container> <image_name>```
 
 To see containers list:
 ```docker ps``` (ps=> process)
