@@ -8,7 +8,7 @@ Forked and added notes to readme by Konul Mammadova.
 Have a nice read! 
 
 This readme file already contains 
-- all codes in the tutorial
+- all docker codes in the tutorial
 - docker commands which doesn't present in the branches
 - some explanation of docker topics and terminologies.
 
