@@ -48,6 +48,7 @@ To see containers list:
 ```docker ps``` (ps=> process)
 
 If we don't map containers exposed port to our local computer's port, we can't acces the application.
+
 ```docker run --name <new_container_name> -p 4000:4000 <image_name>``` (-p means publish)
 
 # lesson-8
