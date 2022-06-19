@@ -4,7 +4,7 @@ All course files for the [Docker Crash Course tutorial on the Net Ninja site &am
 You can find all codes is used in tutorial in the <b>lesson-n</b> branches.
 
 NOTE:
-Forked and added notes to readme by me.
+Forked and added notes to readme by Konul Mammadova.
 Have a nice read! 
 
 This readme file already contains 
