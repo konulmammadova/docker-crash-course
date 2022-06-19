@@ -32,6 +32,18 @@ docker build -t <new_image_name> <path/to/the/dockerfile>
 
 We can put file and folder names to ```.dockerignore``` file for not coping to the image(COPY line) 
 
+# lesson-7
+
+To list docker images run the command:
+```docker images```
+
+To run an image(create container):
+```docker run <image_name>```
+```docker run --name <give_a_name_to_container> <image_name>```
+
+To see containers list:
+```docker ps``` (ps=> process)
+
 # lesson-8
 
 # lesson-10
