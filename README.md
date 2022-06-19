@@ -212,14 +212,51 @@ To be capable of passing and syncing changes:
 
 Now we have a container which can get any change action from our local computer. We can test by changing in any file.
 
-5. But if we remove node_modules folder by mistakenly or for another reason, it would be removed from the /app folder in the container. We just need to exclude node_modules/ changes from the volumes. To do this we create anonymous volume in the cmd:
+5. But if we remove node_modules folder by mistakenly or for another reason, it would be removed from the /app folder in the container. We just need to exclude node_modules/ changes from the volumes. To do this we create <b>anonymous volume</b> in the cmd:
 
-```docker run --name myapp:nodemon -p 4000:4000 -v <absolute_path_to_the_app_folder>:/app -v /app --rm <image_name>:<version>```
+```docker run --name myapp:nodemon -p 4000:4000 -v <absolute_path_to_the_app_folder>:/app -v /app/node_modules --rm <image_name>:<version>```
 
-(```-v /app``` -> /app in the container)
+(```-v /app/node_modules``` -> /app in the container) anonymous volume maps the specified path in the container to local speficid docker path.
 
 Note: It's a bit long-winded way of creating new container with these commands, but in the following lesson we will use easier way of doing this by using docker compose.
 
 
 # lesson-11
+### Docker Compose
+
+If we have multiple projects (like, node, mongodb, react) to run and create containers for each of them is a little bit difficult to manage. Instead we can use docker compose which allows us to write instructions for all out containers in a file(compose file) and create then at once.
+
+1. Create a ```docker-compose.yaml``` file in the directory of where all projects will be located(to create containers, in our case in the same directory of /app)
+
+```
+#version of docker compose
+version: '3'
+
+services:
+  # basically projects that we need images and containers fo
+  api:
+    # our project, give it a name as you want
+    # options for the api project
+
+    build: ./api # path to the app's dockerfile
+    container_name: api_c
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./api:/app
+      - ./app/node_modules
+```
+
+2. To build and run the image(create containers in the services property) run the following command in the same path with docker-compose file:
+
+```docker-compose up```
+
+ To stop and remove containers use: ```docker-compose down``` (It will remain images and volumes)
+ 
+ To remove all images and volumes use: ```docker-compose down --rmi -v```
+ 
+ 
+
+
+
 
