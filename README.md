@@ -30,6 +30,8 @@ docker build -t <new_image_name> <path/to/the/dockerfile>
 
 # lesson-6
 
+We can put file and folder names to ```.dockerignore``` file for not coping to the image(COPY line) 
+
 # lesson-8
 
 # lesson-10
