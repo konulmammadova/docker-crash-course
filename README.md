@@ -218,7 +218,7 @@ Now we have a container which can get any change action from our local computer.
 
 (```-v /app``` -> /app in the container)
 
-Note: It's a bit lon-winded way of creating new container with these commands, but in the following lesson we will use easier way of doing this by using docker compose.
+Note: It's a bit long-winded way of creating new container with these commands, but in the following lesson we will use easier way of doing this by using docker compose.
 
 
 # lesson-11
