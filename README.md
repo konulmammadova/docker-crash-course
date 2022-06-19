@@ -1,7 +1,7 @@
 # docker-crash-course
 All course files for the [Docker Crash Course tutorial on the Net Ninja site &amp; YouTube channel](https://www.youtube.com/watch?v=31ieHmcTUOk&list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7&index=1)
 
-You can find all codes tha is used in tutorial in the <b>lesson-n</b> branches.
+You can find all codes is used in tutorial in the <b>lesson-n</b> branches.
 
 NOTE:
 Forked and added notes to readme by me.
