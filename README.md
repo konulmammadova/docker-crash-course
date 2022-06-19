@@ -71,12 +71,6 @@ If you want to run a container without blocking your terminal you can add detach
 
 ```docker run --name <new_container_name> -p 4000:4000 ```-d``` <image_name>```
 
-Start and stop docker:
-
-```docker stop <container_name_or_container_id>```
-
-```docker start <container_name_or_container_id>```
-
 
 # lesson-8
 
@@ -124,6 +118,14 @@ CMD ["node", "app.js"]
 
 ## Managing images and containers
 
+Start and stop docker:
+
+```docker stop <container_name_or_container_id>```
+
+```docker start <container_name_or_container_id>```
+
+By default start runs in detached mode. If you want to run in nteractive mode  use this: ```docker start -i <container>```
+
 To remove image:
 
 ```docker image rm <image_id_or_name>```
@@ -136,9 +138,20 @@ To remove container:
 
 ```docker container rm <container_id_or_name>```
 
+### Versioning images(adding tags)
+
+To remove all images, all containers and all volumes at the same time:
+```docker system prune -a```
+
+To build an image with any tag:
+```docker build -t <image_name>:v1 path/to/the/dockerfile```
+
 
 # lesson-10
 
+### Docker volumes
+
+Ones an image is made up it becomes read only meaning that if we change the applicatio in any way, we have to rebuild a new image.
 
 # lesson-11
 
