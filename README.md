@@ -1,6 +1,18 @@
 # docker-crash-course
 All course files for the [Docker Crash Course tutorial on the Net Ninja site &amp; YouTube channel](https://www.youtube.com/watch?v=31ieHmcTUOk&list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7&index=1)
 
+You can find all codes tha is used in tutorial in the <b>lesson-n</b> branches.
+
+NOTE:
+Forked and added notes to readme by me.
+Have a nice read! 
+
+This readme file already contains 
+- all codes in the tutorial
+- docker commands which doesn't present in the branches
+- some explanation of docker topics and terminologies.
+
+
 # lesson-5
 
 Docker image is made up from layers(typically there will be parent image as the first layer).
@@ -28,9 +40,11 @@ For creating image run(-t => tag):
 docker build -t <new_image_name> <path/to/the/dockerfile>
 ```
 
+
 # lesson-6
 
 We can put file and folder names to ```.dockerignore``` file for not coping to the image(COPY line) 
+
 
 # lesson-7
 
@@ -61,6 +75,7 @@ Start and stop docker:
 
 ```docker start <container_name_or_container_id>```
 
+
 # lesson-8
 
 ## Layer Caching
@@ -80,6 +95,7 @@ Exp: If we make a change to any file that needs also is coping into the image, i
 
 
 # lesson-10
+
 
 # lesson-11
 
