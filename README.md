@@ -103,7 +103,8 @@ WORKDIR /app
 
 COPY package.json .
 
-#we changed this layer order, beacuse we don't want to npm install for every file change process and need to cache this layer
+#we changed this layer order, 
+#because we don't want to npm install for every file change process and need to cache this layer
 #But we need package.json file to npm install before coping all files to the image
 #Hence we add COPY layer on top of this layer
 RUN npm install
