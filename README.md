@@ -124,7 +124,7 @@ Start and stop docker:
 
 ```docker start <container_name_or_container_id>```
 
-By default start runs in detached mode. If you want to run in nteractive mode  use this: ```docker start -i <container>```
+By default start runs in detached mode. If you want to run in interactive mode  use this: ```docker start -i <container>```
 
 To remove image:
 
@@ -152,6 +152,74 @@ To build an image with any tag:
 ### Docker volumes
 
 Ones an image is made up it becomes read only meaning that if we change the applicatio in any way, we have to rebuild a new image.
+Instead of rebuild image over and over again we can use docker volumes. Volumes allow us to specify folders on our host computer that can be made available to the running container and we can map those folders on the host to the specifix folder in the container.
+
+Note that image itself does not change. Volumes just give us a way to map directories between containers and the hos computer. So if we want to update the image to share others or create new containers, then you will have to rebuild the image.
+
+### Implementing volume over the node project example
+
+1. We have the dockerfile on the below:
+
+```
+FROM nodejs
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 4000
+
+CMD ["node", "app.js"]
+```
+
+2. In the node project whenever we make any change, projects is needed to restart. ```nodemon``` is the tool for listening project folder to catch any change and automatically restart it. Therefore before using docker volume feature we update our dockerfile by adding the command to install nodemon tool globally in the project(in the container) and updating last layer to run the command ```nodemon app.js``` or just ```npm run dev``` in which dev specifies the command(nodemon app.js) in the package.json file(see package.json file):
+
+```
+FROM nodejs
+
+RUN npm install -g nodemon
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 4000
+
+CMD ["npm", "run", "dev"]
+```
+3. To build new version of image: ```docker build -t <image_name>:<version>```
+
+4. Now we have new image that can catch any change in the container.
+
+But we didn't map any folder to the container's specific folder to sync local changes with container yet. That's why with current image if we run and create new container, it couldn't get any change in the files.
+ 
+To be capable of passing and syncing changes:
+
+- We don't need to update Dockerfile(if we would do, we would have to create image again)
+- We create new container on the command line: 
+
+```docker run --name myapp:nodemon -p 4000:4000 -v <absolute_path_to_the_app_folder>:/app --rm <image_name>:<version>``` 
+
+(```-v``` -> indicates volume, ```--rm``` -> indicates that after stopping the container it will be removed automatically)
+
+Now we have a container which can get any change action from our local computer. We can test by changing in any file.
+
+5. But if we remove node_modules folder by mistakenly or for another reason, it would be removed from the /app folder in the container. We just need to exclude node_modules/ changes from the volumes. To do this we create anonymous volume in the cmd:
+
+```docker run --name myapp:nodemon -p 4000:4000 -v <absolute_path_to_the_app_folder>:/app -v /app --rm <image_name>:<version>```
+
+(```-v /app``` -> /app in the container)
+
+Note: It's a bit lon-winded way of creating new container with these commands, but in the following lesson we will use easier way of doing this by using docker compose.
+
 
 # lesson-11
 
