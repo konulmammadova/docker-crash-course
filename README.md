@@ -93,6 +93,29 @@ Exp: If we make a change to any file that needs also is coping into the image, i
 
 - Just because for being on top of the affected layer. In every layer(line) image is cached in the format of including whole stack of previous layers. Hence every layer on top of the affected layer needs to build from scratch.
 
+We can update our dockerfile example if we need cache some further layers(layers on top of the COPY):
+
+```
+FROM nodejs
+
+WORKDIR /app
+
+COPY package.json .
+
+#we changed this layer, beacuse we don't want to npm instal for every file change process
+#But we need package.json file to npm install before coping all files to the image
+#Hence we add COPY layer on top of this layer
+RUN npm install
+
+COPY . .
+
+#exposed is used for mapping our computer port to container port, actually not required when we use cmd
+EXPOSE 4000
+
+#running after building image(when we have a container)
+CMD ["node", "app.js"]
+```
+
 
 # lesson-10
 
