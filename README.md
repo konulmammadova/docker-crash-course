@@ -120,6 +120,17 @@ EXPOSE 4000
 CMD ["node", "app.js"]
 ```
 
+# lesson - 9
+
+## Managing images and containers
+
+To remove image:
+
+```docker image rm <image_id_or_name>```
+
+To force removing image if there is any running container:
+
+```docker image rm <image> -f```
 
 # lesson-10
 
